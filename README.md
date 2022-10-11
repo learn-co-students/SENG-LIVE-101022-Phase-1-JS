@@ -9,7 +9,7 @@
 
 | Lecture                                        |                                             Notes                                              | Videos | Starter | Solution |
 | ---------------------------------------------- | :--------------------------------------------------------------------------------------------: | ------ | ------- | -------- |
-| 1. (10/11/22) Functions & Scope                | [Notes](https://docs.google.com/document/d/1VLA2ao2hJTcSHpSFPTm-mjlMjtMziEk869bMxsF9en0/edit#) |   []()     |    []()     |    []()      |
+| 1. (10/11/22) Functions & Scope                | [Notes](https://docs.google.com/document/d/1VLA2ao2hJTcSHpSFPTm-mjlMjtMziEk869bMxsF9en0/edit#) |   [Video](https://vimeo.com/759270987)     |    [Starter](https://github.com/learn-co-students/SENG-LIVE-101022-Phase-1-JS/tree/main/01_Functions_%26_Scope)     |    [Solution](https://github.com/learn-co-students/SENG-LIVE-101022-Phase-1-JS/compare/main...01_solution)      |
 | 2. (10/12/22) DOM Manipulation                 | [Notes](https://docs.google.com/document/d/1VLA2ao2hJTcSHpSFPTm-mjlMjtMziEk869bMxsF9en0/edit#) |   []()     |    []()     |    []()      |
 | 3. (10/13/22) DOM Events                       | [Notes](https://docs.google.com/document/d/1VLA2ao2hJTcSHpSFPTm-mjlMjtMziEk869bMxsF9en0/edit#) |   []()     |    []()     |    []()      |
 | 4. (10/14/22) Communicating with the Server    | [Notes](https://docs.google.com/document/d/1VLA2ao2hJTcSHpSFPTm-mjlMjtMziEk869bMxsF9en0/edit#) |   []()     |    []()     |    []()      |
