@@ -69,10 +69,12 @@ const inventory = [
     }
 ]
 
+console.log("i'm working again")
+
 // Function ideas:
 /*
 - helloWorld
-- priceFormatter
+- priceFormatter(price)
 - titleAndAuthor
 - applyDiscount(price)
 - randomDiscount
@@ -80,12 +82,91 @@ const inventory = [
 - buildBook(price, author, imageUrl)
 */
 
+const book = inventory[0]
+
+function helloWorld() {
+  return "Hello, world!";
+}
+
+console.log(helloWorld());
+
+function priceFormatter(price) {
+  // concatenation 
+  // return '$' + price.toFixed(2);
+  // interpolation
+  let formattedPrice = price.toFixed(2);
+  return `$${formattedPrice}`;
+}
+
+// function titleAndAuthor(book) {
+//   return `${book.title} by ${book.author}`;
+// }
+
+// const titleAndAuthor = function(book) {
+//   return `${book.title} by ${book.author}`;
+// }
+
 // Arrow functions vs regular functions
 
+const titleAndAuthor = (book) => `${book.title} by ${book.author}`;
 
+const applyDiscount = (book, discount = 20) => {
+  const percentageToDecimal = discount / 100;
+  const discountedPrice = book.price * (1 - percentageToDecimal);
+  return `${titleAndAuthor(book)} is on sale for ${priceFormatter(discountedPrice)}! That's ${discount}% off!!!`;
+}
+
+console.log(applyDiscount(book));
+
+// foreshadowing of arrow functions as callbacks: fetch('url').then(res => res.json())
 
 // Difference between Block scope, Function scope, and Global scope
 
+let newTitle = "The JavaScript Cookbook";
+console.log('Global scope', newTitle);
 
+function buildBook(price, author, imageUrl) {
+  console.log('Function scope', newTitle);
+  const bookObj = {};
+  bookObj.title = newTitle;
+  bookObj.price = price;
+  bookObj.author = author;
+  const defaultImage = 'placeholderImage.jpg'
+  if (!imageUrl) {
+    console.log('Block scope', defaultImage)
+    bookObj.imageUrl = defaultImage;
+  } else {
+    bookObj.imageUrl = imageUrl;
+  }
+  console.log('Function scope', defaultImage);
+  return bookObj;
+}
 
-// Ideas: 
+// my own higher order function
+function mapOverArray(array, callback) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    let element = array[i]
+    let transformedElement = callback(element);
+    newArray.push(transformedElement)
+  }
+  return newArray;
+}
+
+console.log(mapOverArray(inventory, titleAndAuthor))
+
+// using a built in higher order function
+console.log(inventory.map(titleAndAuthor))
+
+const transformed = inventory.map(function(book) {
+  console.log(book.title);
+  return titleAndAuthor(book);
+})
+
+// const transformed = inventory.map((book) => {
+//   console.log(book.title);
+//   return titleAndAuthor(book);
+// })
+
+console.log(transformed)
+
