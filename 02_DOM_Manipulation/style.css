@@ -40,8 +40,9 @@ header div h2{
     width:190px;
 }
 
-footer{
+footer {
     display: flex;
+    flex-direction: column;
 }
 
 footer div p{

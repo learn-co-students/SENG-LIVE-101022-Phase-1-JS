@@ -2,11 +2,11 @@
 ## SWBAT
 - [ ] Explain what the DOM is
 - [ ] Traverse the DOM tree
-- [ ] Select single dom elements with .querySelector() and -getElementById()
+- [ ] Select single DOM elements with .querySelector() and -getElementById()
 - [ ] Select multiple elements with .querySelectorAll() and .-getElementsByClassName()
-- [ ] Add context with .textContent
+- [ ] Add content with .textContent
 - [ ] Create elements with .createElement
-- [ ] Append elements to the dom with .appendChild and .append
+- [ ] Append elements to the DOM with .appendChild and .append
 - [ ] Explain the dangers of innerHTML and when it's safe to use
 - [ ] Remove content with .remove
 
