@@ -20,8 +20,8 @@ data.js contains Book Store data for the application. It’s loaded before our i
 - Demo querySelectorAll:   
     - Create a function that grabs all the divs from the footer. Render the bookstore name,, address, and hours 
 - Demo createElement   
-    - Iterate through bookdata.inventory (an array of book objects). For every object in the array create a li, h3 , 2 ptags, image, and button elements. 
-    - Add a book title to the h3 text content, the author and price to the ptags, and ‘Delete’ to the button. 
+    - Iterate through bookdata.inventory (an array of book objects). For every object in the array create an `<li>`, `<h3>` , 2 `<p>` tags, and an `<img>` element. 
+    - Add a book title to the h3 text content, the author and price to the ptags
     - Add the imageUrl to the img.src and a class to the li of ‘list-li.’ (This is for some css in our style sheet.)
     - Append the h2, ptags, image, and button to the li 
     - Select the ul with the id of ‘book-list’ and append the li
