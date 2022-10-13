@@ -42,17 +42,61 @@ function renderBook(book) {
     pAuthor.textContent = book.author;
     
     const pPrice = document.createElement('p');
-    pPrice.textContent = `$${book.price}`;
+    pPrice.textContent = `${priceFormatter(book.price)}`;
+    
+    const pStock = document.createElement('p');
+    pStock.className = "grey";
+    if (book.inventory === 0) {
+        pStock.textContent = "Out of stock";
+    } else if (book.inventory < 3) {
+        pStock.textContent = "Only a few left!";
+    } else {
+        pStock.textContent = "In stock"
+    }
     
     const img = document.createElement('img');
     img.src = book.imageUrl;
     img.alt = `${book.title} cover`;
-;
-    const btn = document.createElement('button');
 
+    const btn = document.createElement('button');
     btn.textContent = 'Delete';
 
-    li.append(h3,pAuthor,pPrice,img,btn);
+    btn.addEventListener('click', (e) => {
+        //e.target.closest('.list-li').remove();
+        li.remove();
+    })
+
+    li.append(h3,pAuthor,pPrice,pStock,img,btn);
     document.querySelector('#book-list').append(li);
 }
 
+const form = document.querySelector('#book-form');
+
+
+// this is what a book looks like
+// {
+//     id:1,
+//     title: 'Eloquent JavaScript: A Modern Introduction to Programming',
+//     author: 'Marjin Haverbeke',
+//     price: 10.00,
+//     reviews: [{userID: 1, content:'Good book, but not great for new coders'}],
+//     inventory: 10,
+//     imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51IKycqTPUL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
+    
+// }
+// we can use a book as an argument for renderBook!  This will add the book's info to the webpage.
+form.addEventListener('submit', (e) => { 
+    e.preventDefault();
+    // pull the info for the new book out of the form
+    const book = {
+        title: e.target.title.value,
+        author: e.target.author.value,
+        price: e.target.price.value,
+        reviews: [],
+        inventory: e.target.inventory.value,
+        imageUrl: e.target.imageUrl.value
+    }
+    // pass the info as an argument to renderBook for display!
+    renderBook(book);
+    e.target.reset();
+})
