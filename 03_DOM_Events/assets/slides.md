@@ -115,14 +115,14 @@ form.addEventListener('submit', (e) => {
 
 <pre><code data-line-numbers><form>
   <input type="text" name="q" />
-  <input type="submit">Search</input>
+  <input type="submit" />
 </form>
 
 <script>
 const form = document.querySelector('form');
 form.addEventListener('submit', (e) => {
-  console.log(form.q);
-}));
+  console.log(form.q.value);
+});
 </script></code></pre>
 
 ---
@@ -131,7 +131,7 @@ form.addEventListener('submit', (e) => {
 
 <form id="otherForm">
   <input type="text" name="q" />
-  <input type="submit" />
+  <input type="submit" value="Search" />
 </form>
 
 <script>
@@ -142,16 +142,17 @@ otherForm.addEventListener('submit', (e) => {
 });
 </script>
 
-<pre><code data-line-numbers><form>
+<pre><code data-line-numbers><form id="otherForm">
   <input type="text" name="q" />
-  <input type="submit">Search</input>
+  <input type="submit" value="Search" />
 </form>
 
 <script>
-const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
-  console.log(form.q);
-}));
+const otherForm = document.querySelector('#otherForm');
+otherForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log(otherForm.q.value);
+});
 </script></code></pre>
 
 ---

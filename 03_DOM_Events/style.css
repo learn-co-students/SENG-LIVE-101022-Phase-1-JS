@@ -14,6 +14,10 @@ header div h1, header div h2{
     font-family: Verdana;
 }
 
+input[type="submit"], button {
+    cursor: pointer;
+}
+
 header div h2{
     color: aliceblue;
     font-style: italic;
@@ -32,6 +36,10 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+}
+
+.grey {
+    color: #aaa;
 }
 
 .list-li{
