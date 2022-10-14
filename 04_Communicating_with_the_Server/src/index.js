@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return `$${formattedPrice}`;
     }
 
-    bookStore.inventory.forEach(renderBook);
+    // bookStore.inventory.forEach(renderBook);
 
     // Event handlers 
     const form = document.querySelector('#book-form');
@@ -103,10 +103,30 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 //Invoking functions
-    renderHeader(bookStore)
-    renderFooter(bookStore)
-    bookStore.inventory.forEach(renderBookCard)
-    document.querySelector('#book-form').addEventListener('submit', handleForm)
-
+    
+    // fetching our data!
+    fetch('http://localhost:3000/stores/1')
+        .then((response) => response.json())
+        .then((bookStore) => {
+            renderHeader(bookStore)
+            renderFooter(bookStore)
+            console.log(bookStore)
+        });
+    
+    
+    // bookStore.inventory.forEach(renderBook)
+    fetch('http://localhost:3000/books')
+        .then(res => res.json())
+        .then(booksData => {
+            booksData.forEach(renderBook)
+            booksData.forEach(book => {
+                
+                renderBook(book);
+            })
+        })
+        .catch((error) => {
+            console.error(error);
+            console.log("Did you remember to start your JSON server?")
+        })
 
 })
