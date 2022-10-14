@@ -14,19 +14,15 @@ header div h1, header div h2{
     font-family: Verdana;
 }
 
-
-
 header div h2{
     color: aliceblue;
     font-style: italic;
-
 }
 
 main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
 }
 
 .list ul{
@@ -36,21 +32,25 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    /* border-top: solid;
-    border-width:thin medium thick 10px; */
 }
 
 .list-li{
     list-style: none;
-    width:200px;
-    box-shadow: 8px 10px #c9c8c8;
+    width: 200px;
+    box-shadow: 4px 4px 10px #c9c8c8;
     padding: 5px;
-    margin:10px;
- 
+    margin: 10px;
 }
+
+.list-li h3 {
+    height: 70px;
+}
+
 .list-li img{
-    width:190px;
+    width: 190px;
+    height: 265px;
 }
+
 .list-li button{
     width:190px;
     margin: 15px 5px 15px 5px;
@@ -75,11 +75,16 @@ label{
     font-family: Verdana;
 }
 
+.grey {
+    color: #aaa;
+}
+
 input{
   height: 40px;
   width: 100%;
   margin: 3px;
 }
+
 input[type=submit]{
     border: none;
     background-color: #2e824d;
@@ -97,6 +102,15 @@ form{
 }
 
 footer{
-
     text-align: center;
+}
+
+.book-inventory-form{
+    width: 100%;
+}
+
+.book-inventory-form input{
+    height: 30px;
+    width: 100%;
+    margin: 3px;
 }
