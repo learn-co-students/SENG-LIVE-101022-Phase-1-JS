@@ -1,6 +1,6 @@
 # Post Requests
 ## SWBAT
-- [ ] Observe how to send a  POST request using HTML forms and JavaScript
+- [ ] Observe how to send a POST request using HTML forms and JavaScript
 - [ ] Explain the difference between optimistic and pessimistic rendering
 
 ## Deliverables 
@@ -18,7 +18,7 @@
 - Refactor 
     - Move the post functionality to a function called createResource. The function should have a URL and body as its parameters.
     - Return the POST request.
-    - Call createResource in handleForm, passing it the URL for ‘/books’ and the book Object.
+    - Call createResource in the submit event handler, passing it the URL for ‘/books’ and the book Object.
     - Remove the second .then and .catch from the POST and chain it to the invocation of createResource
 - Bonus
     - Create a store form in index.html

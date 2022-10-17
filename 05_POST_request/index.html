@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="style.css">
 
+    <script defer src="src/request_helpers.js"></script>
     <script defer src="src/index.js"></script>
     
 
@@ -41,9 +42,27 @@
             
           <input type="submit" value="ADD BOOK"/>
         </form>
+        <form id="store-form" class="hidden">
+          
+          <label for="name">Name:</label>
+          <input type="text" id="form-name" name="name">
 
-  
+          <label for="location">Location:</label>
+          <input type="text" id="form-location" name="location">
+        
+          <label for="number">Phone Number:</label>
+          <input type="number" id="form-number" name="number">
+        
+          <label for="address">Address:</label>
+          <input type="text" id="form-address" name="address">
+        
+          <label for="hours">Hours:</label>
+          <input type="text" id="hours" name="hours">
+            
+          <input type="submit" value="ADD STORE"/>
+        </form>
       </div>
+      
         <div class="list">
           <ul id="book-list">
           </ul>
