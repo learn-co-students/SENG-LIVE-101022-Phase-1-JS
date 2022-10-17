@@ -118,15 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     
     
-    // bookStore.inventory.forEach(renderBook)
     fetch('http://localhost:3000/books')
         .then(res => res.json())
         .then(booksData => {
             booksData.forEach(renderBook)
-            booksData.forEach(book => {
-                
-                renderBook(book);
-            })
         })
         .catch((error) => {
             console.error(error);
