@@ -71,6 +71,10 @@ main {
     padding: 10px;
 }
 
+[type="submit"], button {
+    cursor: pointer;
+}
+
 label{
     font-family: Verdana;
 }

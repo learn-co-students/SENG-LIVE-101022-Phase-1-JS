@@ -1,11 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-// Fetch requests 
-    // Function for making a GET request 
-    function fetchResource(url){
-        return fetch(url)
-        .then(res => res.json())
-    }
 // Rendering functions
     // Renders Header
     function renderHeader(store){
@@ -75,8 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 // Event Handlers
-    const form = document.querySelector('#book-form');
-
+    const bookForm = document.querySelector('#book-form');
 
     // this is what a book looks like
     // {
@@ -90,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
     // }
     // we can use a book as an argument for renderBook!  This will add the book's info to the webpage.
-    form.addEventListener('submit', (e) => { 
+    bookForm.addEventListener('submit', (e) => { 
         e.preventDefault();
         // pull the info for the new book out of the form
         const book = {
@@ -98,13 +91,109 @@ document.addEventListener('DOMContentLoaded', () => {
             author: e.target.author.value,
             price: e.target.price.value,
             reviews: [],
-            inventory: e.target.inventory.value,
+            inventory: Number(e.target.inventory.value),
             imageUrl: e.target.imageUrl.value
         }
         // pass the info as an argument to renderBook for display!
-        renderBook(book);
-        e.target.reset();
+
+        // optimistic or pessimistic rendering?
+
+        // optimistic
+        // fetch("http://localhost:3000/books", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(book)
+        // })
+        // renderBook(book);
+
+        // pessimistic rendering for creating a book
+
+        // fetch("http://localhost:3000/books", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(book)
+        // })
+        //     .then(response => response.json())
+        //     .then(book => {
+        //         renderBook(book)
+        //         e.target.reset();
+        //     });
+
+        // or
+
+        postJSON("http://localhost:3000/books", book)
+            .then(book => {
+                renderBook(book)
+                e.target.reset();
+            });
+        
     })
+
+    const storeForm = document.querySelector('#store-form');
+
+    // stores should look like this:
+    // {
+    //   "id": 3,
+    //   "location": "Los Angeles",
+    //   "address": "2525 drive Los Angeles CA 90002",
+    //   "number": 5554443333,
+    //   "name": "Tech BooksRus",
+    //   "hours": "Thursday - Saturday 11am - 7pm"
+    // }
+
+    storeForm.addEventListener('submit', (e) => { 
+        e.preventDefault();
+        const store = {
+            location: e.target.location.value,
+            address: e.target.address.value,
+            number: e.target.number.value,
+            name: e.target.name.value,
+            hours: e.target.hours.value
+        };
+    
+        // update DOM & update Server
+
+        // optimistically
+        // fetch("http://localhost:3000/stores", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(store)
+        // })
+
+        // renderHeader(store);
+        // renderFooter(store);
+
+        // pessimistically
+
+        // fetch("http://localhost:3000/stores", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(store)
+        // })
+        //     .then(response => response.json())
+        //     .then(storeData => {
+        //         renderHeader(storeData);
+        //         renderFooter(storeData);
+        //     })
+
+        // or
+
+        postJSON("http://localhost:3000/stores", store)
+            .then(storeData => {
+                renderHeader(storeData);
+                renderFooter(storeData);
+            })
+
+    }); 
+
 
 
 // Invoking functions    
