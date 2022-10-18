@@ -46,79 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       pStock.textContent = "In stock"
     }
-
-    const editStockInput = document.createElement("input");
-    editStockInput.type = "number";
-    editStockInput.style = "width: 45px";
-    editStockInput.value = book.inventory;
-    editStockInput.min = 0;
-
-    editStockInput.addEventListener('change', (e) => {
-      console.log("I'm changing!!!");
-      // optimistic
-      // fetch(`http://localhost:3000/books/${book.id}`, {
-      //   method: "PATCH",
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   },
-      //   body: JSON.stringify({ inventory: Number(editStockInput.value) })
-      // })
-      // if (Number(editStockInput.value) === 0) {
-      //   pStock.textContent = "Out of stock";
-      // } else if (editStockInput.value < 3) {
-      //   pStock.textContent = "Only a few left!";
-      // } else {
-      //   pStock.textContent = "In stock"
-      // }
-
-      // pessimistically
-      fetch(`http://localhost:3000/books/${book.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ inventory: Number(editStockInput.value) })
-      })
-        .then(response => response.json())
-        .then(book => {
-          if (book.inventory === 0) {
-            pStock.textContent = "Out of stock";
-          } else if (book.inventory < 3) {
-            pStock.textContent = "Only a few left!";
-          } else {
-            pStock.textContent = "In stock"
-          }
-        })
-    })
     
     const img = document.createElement('img');
     img.src = book.imageUrl;
     img.alt = `${book.title} cover`;
 
-    // this is one approach to the button
     const btn = document.createElement('button');
     btn.textContent = 'Delete';
 
     btn.addEventListener('click', (e) => {
-      if (window.confirm(`Are you sure you want to delete ${book.title}?`)) {
-        li.remove();
-        fetch(`http://localhost:3000/books/${book.id}`, { method: "DELETE" })
-      }
+      li.remove();
     })
 
-    // this is an alternative using data attributes
-    // const btn = document.createElement('button');
-    // btn.textContent = 'Delete';
-    // btn.dataset.bookId = book.id;
-
-    // btn.addEventListener('click', (e) => {
-    //   if (window.confirm("Are you sure you want to delete this book?")) {
-    //     li.remove();
-    //     fetch(`http://localhost:3000/books/${e.target.dataset.bookId}`, { method: "DELETE" })
-    //   }
-    // })
-
-    li.append(h3,pAuthor,pPrice,pStock,editStockInput,img,btn);
+    li.append(h3,pAuthor,pPrice,pStock,img,btn);
     document.querySelector('#book-list').append(li);
   }
 
