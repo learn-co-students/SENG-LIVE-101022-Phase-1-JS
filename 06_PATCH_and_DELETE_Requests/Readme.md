@@ -61,7 +61,7 @@ fetch(url/:id, {
 ```
 
 ## Delete
-Delete removes a resource from the server. Unlike Post and Patch it doesn't require headers or a body, though some backend frameworks may require a header.
+Delete removes a resource from the server. Unlike Post and Patch it doesn't require a Content-Type header or a body, though some backend frameworks may require another header for authentication.
 
 ```
 // Delete does require the method and the id of the resource being deleted.
