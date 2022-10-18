@@ -89,25 +89,25 @@ document.addEventListener('DOMContentLoaded', () => {
       });  
   })
 
-  const storeForm = document.querySelector('#store-form');
+  // const storeForm = document.querySelector('#store-form');
 
-  storeForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const store = {
-      location: e.target.location.value,
-      address: e.target.address.value,
-      number: e.target.number.value,
-      name: e.target.name.value,
-      hours: e.target.hours.value
-    };
+  // storeForm.addEventListener('submit', (e) => {
+  //   e.preventDefault();
+  //   const store = {
+  //     location: e.target.location.value,
+  //     address: e.target.address.value,
+  //     number: e.target.number.value,
+  //     name: e.target.name.value,
+  //     hours: e.target.hours.value
+  //   };
 
 
-    postJSON("http://localhost:3000/stores", store)
-      .then(storeData => {
-        renderHeader(storeData);
-        renderFooter(storeData);
-      })
-  })
+  //   postJSON("http://localhost:3000/stores", store)
+  //     .then(storeData => {
+  //       renderHeader(storeData);
+  //       renderFooter(storeData);
+  //     })
+  // })
 
 
 // Invoking functions    
@@ -119,6 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(e => console.error(e))
 
   getJSON('http://localhost:3000/books')
-    .then(books => books.forEach(renderBookCard))
+    .then(books => books.forEach(renderBook))
     .catch(e => console.error(e))
 })
